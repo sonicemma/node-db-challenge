@@ -66,4 +66,34 @@ router.get('/:id/resources', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    const addNewProjects = req.body;
+
+    Projects.addProject(addNewProjects)
+        .then(projects => {
+            if (addNewProjects.projects_name && addNewProjects.projects_description) {
+                res.status(201).json(projects)
+            } else {
+                res.status(404),json({
+                    message: 'Error adding project, no description or name provided'
+                })
+            }
+        })
+        .catch(err => {
+            console.log(err.message)
+        })
+})
+
+router.post('/:id/tasks', (req, res) => {
+    const addNewTasks = req.body;
+
+    Projects.addTasks(addNewTasks)
+})
+
+router.post('/:id/resources', (req, res) => {
+    const addNewResources = req.body;
+
+    Projects.addResources(addNewResources)
+})
+
 module.exports = router;
