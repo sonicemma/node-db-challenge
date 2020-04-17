@@ -30,7 +30,7 @@ function findTasks(projectId){
     return db('projects')
         .select(
             'projects.projects_name',
-            'tasks.nates',
+            'tasks.notes',
             'tasks.tasks_description',
             'tasks.tasks_completed'
         )

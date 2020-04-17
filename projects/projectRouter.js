@@ -34,4 +34,20 @@ router.get('/:id', (req, res) => {
         })
 })
 
+router.get('/:id/tasks', (req, res) => {
+    const {id} = req.params;
+
+    Projects.findTasks(id)
+        .then(tasks => {
+            if (tasks.length > 0) {
+                res.status(201).json(tasks)
+            } else {
+                res.status(404).json({message: 'No tasks found'})
+            }
+        })
+        .catch(err => {
+            console.log(err.message)
+        })
+})
+
 module.exports = router;
