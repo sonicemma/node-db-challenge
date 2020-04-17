@@ -40,12 +40,20 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+  A relational database organized data into columns and tables. SQL is a lgnauge that can design relational databases.
+
 - [ ] Why do tables need a `primary key`?
+
+  Having a primary key allows row level accessibility and allows relationships between different tables.
 
 - [ ] What is the name given to a table column that references the primary key on another table.
 
+  Foreign key
+
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
 
+  Join tables
+  
 ## Minimum Viable Product
 
 Take the steps necessary to complete the project from scratch. Start by initializing your project with a `package.json` and go from there.
