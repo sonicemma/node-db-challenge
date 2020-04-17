@@ -88,12 +88,18 @@ router.post('/:id/tasks', (req, res) => {
     const addNewTasks = req.body;
 
     Projects.addTasks(addNewTasks)
+        .then(task => {
+            res.status(201).json(task);
+        })
 })
 
 router.post('/:id/resources', (req, res) => {
     const addNewResources = req.body;
 
     Projects.addResources(addNewResources)
+        .then(resource => {
+            res.status(201).json(resource);
+        })
 })
 
 module.exports = router;
