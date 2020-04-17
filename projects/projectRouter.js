@@ -50,4 +50,20 @@ router.get('/:id/tasks', (req, res) => {
         })
 })
 
+router.get('/:id/resources', (req, res) => {
+    const {id} = req.params;
+
+    Projects.getResources(id)
+    .then(resources => {
+        if (resources.length > 0) {
+            res.status(201).json(resources)
+        } else {
+            res.status(400).json({message: 'No resources found'})
+        }
+    })
+    .catch(err => {
+        console.log(err.message)
+    })
+})
+
 module.exports = router;

@@ -14,8 +14,15 @@ function getProjects() {
     return db('projects');
 }
 
-function getResources() {
-    return db('resources');
+function getResources(projectId) {
+    return db('projects')
+        .select(
+            'projects.projects_name',
+            'resources.resources_name',
+            'resources.resources_description'
+        )
+        .join('resources', 'resources.project_id', 'projects.id')
+        .where('projects.id', projectId)
 }
 
 function findById(id) {
